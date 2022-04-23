@@ -20,6 +20,7 @@ export const getEstaciones = async (req, res) => {
     avg(cast(d.severidad as Integer)) ,
     max(cast(d.severidad as Integer)),
     pq.nombre as parroquia,
+    e.id as idEstudio,
     e."nombreEstudio",
     z.x,
     z.y 
@@ -35,7 +36,7 @@ export const getEstaciones = async (req, res) => {
     inner join parroquias pq on z."idParroquia" = pq.id
     inner join cantons c on pq."idCanton" = c.id
     where cast(d.severidad as Integer) >= 0 and m."fechaEjecucion" between :fecha_init and :fecha_end
-    group by pq.nombre,e."nombreEstudio",z.x,z.y`, {
+    group by pq.nombre,e."nombreEstudio",e.id ,z.x,z.y`, {
         replacements:{fecha_init:feci,fecha_end: fecf},
     type: QueryTypes.SELECT,
   });
