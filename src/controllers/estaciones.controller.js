@@ -35,9 +35,8 @@ export const getEstaciones = async (req, res) => {
     inner join zonas z on f."idZona"=z.id
     inner join parroquias pq on z."idParroquia" = pq.id
     inner join cantons c on pq."idCanton" = c.id
-    where cast(d.severidad as Integer) >= 0 and m."fechaEjecucion" between :fecha_init and :fecha_end
-    group by pq.nombre,e."nombreEstudio",e.id ,z.x,z.y`, {
-        replacements:{fecha_init:feci,fecha_end: fecf},
+    where cast(d.severidad as Integer) >= 0 and m."fechaEjecucion" between :fecha_init and :fecha_end group by pq.nombre,e."nombreEstudio",e.id ,z.x,z.y`,
+{replacements:{fecha_init:feci,fecha_end: fecf},
     type: QueryTypes.SELECT,
   });
 //   console.log("RESULT", estaciones);
