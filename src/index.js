@@ -9,7 +9,7 @@ async function main() {
     await sequelize.authenticate();
     await sequelize2.sync();
     console.log("Connection has been established successfully.");
-    var port = 3000; //Cambiarlo por el puerto que se use
+    var port = 4000; //Cambiarlo por el puerto que se use
     app.listen(port);
     console.log("Listening on port", port);
   } catch (error) {
