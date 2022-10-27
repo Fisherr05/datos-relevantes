@@ -1,6 +1,8 @@
 import Sequelize from "sequelize";
+import '../loadEnv.js';
 
-export const sequelize = new Sequelize("monitoreo", "monitoreo", "patfa2021", {
-  host: "patfa.site",
-  dialect: "postgres",
+
+export const sequelize = new Sequelize(process.env.DB_DATABASE1, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
+  host: process.env.DB_HOST,
+  dialect: process.env.DB_DIALECT,
 });

@@ -3,6 +3,8 @@ import { sequelize } from "./database/database.js";
 import { sequelize2 } from "./database/database2.js";
 
 import "./models/user.js";
+import "dotenv/config.js";
+
 
 async function main() {
   try {
